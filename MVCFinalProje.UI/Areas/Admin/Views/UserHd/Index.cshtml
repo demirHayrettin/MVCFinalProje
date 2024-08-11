@@ -1,0 +1,58 @@
+﻿@model MVCFinalProje.UI.Areas.Admin.Models.UserHdVMs.UserHdVM
+
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+    <li class="dropdown-header">
+        <div class="d-flex align-items-center">
+            <img src="@Model.ProfileImageUrl" alt="Profile Photo" class="img-thumbnail rounded-circle me-2" style="width: 50px; height: 50px;">
+            <div>
+                <h6>@Model.FullName</h6>
+                <span>@Model.Role</span>
+            </div>
+        </div>
+    </li>
+    <li>
+        <hr class="dropdown-divider">
+    </li>
+
+    <li>
+        <a class="dropdown-item d-flex align-items-center" href="@Model.ProfileUrl">
+            <i class="bi bi-person"></i>
+            <span>My Profile</span>
+        </a>
+    </li>
+    <li>
+        <hr class="dropdown-divider">
+    </li>
+
+    <li>
+        <a class="dropdown-item d-flex align-items-center" href="@Model.SettingsUrl">
+            <i class="bi bi-gear"></i>
+            <span>Account Settings</span>
+        </a>
+    </li>
+    <li>
+        <hr class="dropdown-divider">
+    </li>
+
+    <li>
+        <a class="dropdown-item d-flex align-items-center" href="@Model.HelpUrl">
+            <i class="bi bi-question-circle"></i>
+            <span>Need Help?</span>
+        </a>
+    </li>
+    <li>
+        <hr class="dropdown-divider">
+    </li>
+
+    <li>
+        <a class="dropdown-item d-flex align-items-center" href="@Model.SignOutUrl">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Sign Out</span>
+        </a>
+    </li>
+</ul>
+
+<div class="container mt-4">
+    <h3>About Me</h3>
+    <p>@Model.Biography</p>
+</div>

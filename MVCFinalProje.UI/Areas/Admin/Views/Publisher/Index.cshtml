@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVCFinalProje.UI.Areas.Admin.Models.PublisherVMs.AdminPublisherListVM>
+
+@{
+    ViewData["Title"] = "Index";
+    int row = 0;
+}
+<a class="btn btn-primary" asp-action="Create">Create New</a>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Publishers</h5>
+
+        <!-- Table with hoverable rows -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    row++;
+                    <tr>
+                        <th scope="row">@row</th>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            @* @Html.ActionLink("Update", "Update", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) *@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+

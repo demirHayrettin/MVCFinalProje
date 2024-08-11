@@ -1,0 +1,49 @@
+﻿@model MVCFinalProje.UI.Areas.Admin.Models.BookVMs.AdminBookCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AdminBookCreateVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <div class="form-floating">
+                    <input type="text" asp-for="Name" class="form-control" id="floatingName" placeholder="Name">
+                    <label for="floatingName">Name</label>
+                </div>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublishDate" class="control-label"></label>
+                <input asp-for="PublishDate" type="date"  class="form-control" />
+                <span asp-validation-for="PublishDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Authors</label>
+                <select asp-for="AuthorId" asp-items="@Model.Authors" class="form-control">
+                    <option value="">Seçiniz...</option>
+                </select>                
+            </div>
+            <div class="form-group">
+                <label>Publishers</label>
+                <select asp-for="PublisherId" asp-items="@Model.Publishers" class="form-control">
+                    <option value="">Seçiniz...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" /><a class="btn btn-secondary" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
